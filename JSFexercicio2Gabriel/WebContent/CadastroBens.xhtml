@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Cadastro Bens</title>
+</h:head>
+<h:body>
+<h:form>
+<h:commandLink value="Lista de bens" action="ListarBens.xhtml" immediate="true"/>
+    <h1>Bens</h1>
+    <h:messages/>
+    
+    <h:panelGrid columns="2">
+     <h:outputText value="Bem Descrição:"/>
+     <h:inputText value="#{bensControllerGabriel.bens.bem}"
+     required="true" 
+     requiredMessage="O campo bem descriçao e obrigatorio!!">
+     <f:validateLength maximum="60"/>
+     </h:inputText>
+     
+     <h:outputText value="Especificação do Bem:"/>
+     <h:inputText value="#{bensControllerGabriel.bens.especificacao}"
+     required="true"
+     requiredMessage="O campo Especificação do Bem e obrigatorio!!">
+     <f:validateLength maximum="60"/>
+     </h:inputText>
+     
+     <h:outputText value="Departamento a Ser Alocado:"/>
+     <h:inputText value="#{bensControllerGabriel.bens.departamento}"
+     required="true"
+     requiredMessage="O campo Departamento a Ser Alocado e obrigatorio !!">
+     <f:validateLength maximum="60"/>
+     </h:inputText>
+     
+     <h:outputText value="Valor do Bem:"/>
+     <h:inputText value="#{bensControllerGabriel.bens.valor}"
+     required="true"
+     requiredMessage="O campo Valor do Bem e obrigatorio !!">
+     <f:validateDoubleRange minimum="10"/>
+     </h:inputText>
+     
+     <h:outputText value="Data de cadastro:"/>
+     <h:inputText value="#{bensControllerGabriel.bens.data}"
+     required="true"
+     requiredMessage="O campo Data de cadastro e obrigatorio !!">
+     
+     <f:convertDateTime pattern="dd/MM/yyyy"  timeZone="America/Sao_Paulo"/>
+     </h:inputText>
+     
+     
+     <h:commandButton value="Salvar" action="#{bensControllerGabriel.Salvar}"/>
+     
+    </h:panelGrid>
+</h:form>
+</h:body>
+
+</html>
